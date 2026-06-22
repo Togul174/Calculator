@@ -70,6 +70,7 @@ body {
     background-color: #c2c2c4;
     transition: .3s ease;
     cursor: pointer;
+    color: #000;
 }
 
 .btn:hover {
@@ -107,4 +108,19 @@ body {
     html {
         font-size: 7px;
     }
+
+    .buttons {
+        gap: 2rem;
+    }
+
+    .btn {
+        padding: .5rem;
+    }
+}
+
+@media (max-width: 430px) {
+    html {
+        font-size: 6px;
+    }
+
 }
