@@ -1,0 +1,37 @@
+{
+  "name": "thirdtask",
+  "version": "1.0.0",
+  "description": "Простой калькулятор для решения арифметических задач, поддерживающийся на всех типах устройств.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Togul174/Calculator.git"
+  },
+  "keywords": [
+    "calculator",
+    "math",
+    "webpack",
+    "javascript",
+    "css",
+    "html"
+  ],
+  "author": "Togul174",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Togul174/Calculator/issues"
+  },
+  "homepage": "https://github.com/Togul174/Calculator#readme",
+  "devDependencies": {
+    "css-loader": "^7.1.4",
+    "html-webpack-plugin": "^5.6.7",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.108.3",
+    "webpack-cli": "^7.1.0",
+    "webpack-dev-server": "^5.2.6"
+  }
+}

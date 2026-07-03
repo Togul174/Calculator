@@ -1,3 +1,5 @@
+import './styles.css';
+
 const display = document.getElementById('display');
 const buttons = document.querySelectorAll('.btn');
 
@@ -114,26 +116,55 @@ function handleNegate() {
     updateDisplay();
 }
 
+function handleInput(value) {
+    if (value >= '0' && value <= '9') {
+        inputValue(value);
+    } else if (value === 'C') {
+        clearAll();
+    } else if (value === '.') {
+        inputPoint();
+    } else if (value === '+' || value === '−' || value === '×' || value === '÷') {
+        handleOperator(value);
+    } else if (value === '=') {
+        handleEquals();
+    } else if (value === '⌫') {
+        handleBackspace();
+    } else if (value === '±') {
+        handleNegate();
+    }
+}
+
 buttons.forEach(button => {
     button.addEventListener('click', function() {
         const value = this.textContent;
-        
-        if (value >= '0' && value <= '9') {
-            inputValue(value);
-        } else if (value === 'C') {
-            clearAll();
-        } else if (value === '.') {
-            inputPoint();
-        } else if (value === '+' || value === '−' || value === '×' || value === '÷') {
-            handleOperator(value);
-        } else if (value === '=') {
-            handleEquals();
-        } else if (value === '⌫') {
-            handleBackspace();
-        } else if (value === '±') {
-            handleNegate();
-        }
+        handleInput(value);
     });
+});
+
+document.addEventListener('keydown', function(event) {
+    const key = event.key;
+    
+    const allowedDigits = '0123456789';
+    const allowedOperators = '+-*/';
+    const allowedControls = 'Enter.=BackspaceEscapecC';
+    
+    if (!allowedDigits.includes(key) && 
+        !allowedOperators.includes(key) && 
+        !allowedControls.includes(key)) {
+        return;
+    }
+    
+    let value = key;
+    if (key === '*') value = '×';
+    if (key === '/') value = '÷';
+    if (key === '-') value = '−';
+    if (key === 'Enter' || key === '=') value = '=';
+    if (key === 'Escape') value = 'C';
+    if (key === 'c' || key === 'C') value = 'C';
+    if (key === 'Backspace') value = '⌫';
+    
+    event.preventDefault();
+    handleInput(value);
 });
 
 updateDisplay();
