@@ -146,11 +146,11 @@ document.addEventListener('keydown', function(event) {
     
     const allowedDigits = '0123456789';
     const allowedOperators = '+-*/';
-    const allowedControls = 'Enter.=BackspaceEscapecC';
+    const allowedControls = new Set(['Enter', '=', '.', 'Backspace', 'Escape', 'c', 'C']);
     
     if (!allowedDigits.includes(key) && 
         !allowedOperators.includes(key) && 
-        !allowedControls.includes(key)) {
+        !allowedControls.has(key)) {
         return;
     }
     
